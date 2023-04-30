@@ -207,6 +207,7 @@ const { container: missionList, update: updateMissionList } = drawList(
 
     // Add complete button
     const completeBtn = new pixi.Graphics();
+    completeBtn.cursor = "pointer";
     const completeText = new pixi.Text(
       `Complete`,
       new pixi.TextStyle({ fill: mission.canComplete() ? 0xffffff : 0xaaaaaa })
@@ -325,6 +326,7 @@ musicTextToggle.position = new pixi.Point(
   window.innerWidth - musicTextToggle.width,
   window.innerHeight - musicTextToggle.height
 );
+musicTextToggle.cursor = "pointer";
 musicTextToggle.eventMode = "static";
 musicTextToggle.on("pointertap", () => {
   toggleLoop();

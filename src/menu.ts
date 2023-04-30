@@ -22,6 +22,7 @@ export function drawMainMenu({ onPlay }: { onPlay: () => void }) {
     })
   );
   const playBtn = new pixi.Graphics();
+  playBtn.cursor = "pointer";
   const playText = new pixi.Text(
     `Play`,
     new pixi.TextStyle({
