@@ -8,8 +8,7 @@ Assemble a fleet of ships to transport resources between planets, and build spac
 
 ## Play
 
-[Play the game](https://astroxite.com)
-[LDJam page](https://ldjam.com/events/ludum-dare/53/$365665)
+[Play the game](https://astroxite.com) | [LDJam page](https://ldjam.com/events/ludum-dare/53/astroxite)
 
 - Use your mouse to navigate the galaxy
 - Click on planets to view their details
