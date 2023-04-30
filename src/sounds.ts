@@ -43,14 +43,29 @@ export function playError() {
 const loopSounds = ["assets/sounds/loop0.wav", "assets/sounds/loop1.wav"];
 
 // play loop sounds
+export let loopStopped = false;
+let loop: Howl | null = null;
 export function playLoop() {
-  new Howl({
+  loop = new Howl({
     src: [loopSounds[Math.floor(Math.random() * loopSounds.length)]],
-    volume: 0.2,
+    volume: 0.15,
     rate: 1 + Math.random() * 0.4 - 0.2,
     onend: () => {
+      if (loopStopped) return;
       playLoop();
     },
-  }).play();
+  });
+  loop.play();
 }
 setTimeout(playLoop, 1000);
+
+export function toggleLoop() {
+  if (loop) {
+    loopStopped = true;
+    loop.stop();
+    loop = null;
+  } else {
+    loopStopped = false;
+    playLoop();
+  }
+}

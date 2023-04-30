@@ -6,7 +6,7 @@ import drawInfoBox from "./window/body-info";
 import { removeWindow, windows } from "./components/windows";
 import game from "./game";
 import { drawList } from "./components/list";
-import { playCoin, playError } from "./sounds";
+import { loopStopped, playCoin, playError, toggleLoop } from "./sounds";
 import { iconButton } from "./components/button";
 import { DropShadowFilter } from "@pixi/filter-drop-shadow";
 import { Drag } from "pixi-viewport";
@@ -314,6 +314,32 @@ drawMainMenu({
   onPlay: () => {
     gameStarted = true;
   },
+});
+
+// toggle music loop
+const musicTextToggle = new pixi.Text(
+  `Music: ${loopStopped ? "off" : "on"}`,
+  new pixi.TextStyle({ fill: 0xffffff })
+);
+musicTextToggle.position = new pixi.Point(
+  window.innerWidth - musicTextToggle.width,
+  window.innerHeight - musicTextToggle.height
+);
+musicTextToggle.eventMode = "static";
+musicTextToggle.on("pointertap", () => {
+  toggleLoop();
+  musicTextToggle.text = `Music: ${loopStopped ? "off" : "on"}`;
+  musicTextToggle.position = new pixi.Point(
+    window.innerWidth - musicTextToggle.width,
+    window.innerHeight - musicTextToggle.height
+  );
+});
+app.stage.addChild(musicTextToggle);
+window.addEventListener("resize", () => {
+  musicTextToggle.position = new pixi.Point(
+    window.innerWidth - musicTextToggle.width,
+    window.innerHeight - musicTextToggle.height
+  );
 });
 
 app.ticker.add(() => {
