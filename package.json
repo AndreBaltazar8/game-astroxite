@@ -1,0 +1,25 @@
+{
+  "name": "game-space-delivery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "André Baltazar",
+  "dependencies": {
+    "@pixi/filter-drop-shadow": "^5.2.0",
+    "howler": "^2.2.3",
+    "pixi-viewport": "^5.0.1",
+    "pixi.js": "^7.2.4",
+    "vite": "^4.3.3"
+  },
+  "devDependencies": {
+    "@types/howler": "^2.2.7",
+    "@types/pixi.js": "^5.0.0"
+  }
+}
