@@ -116,7 +116,7 @@ const StarRecipies = new Map<Product, Product>([
   [products.hydrogen, products.helium],
   [products.helium, products.carbon],
   [products.carbon, products.neon],
-  [products.carbon, products.oxygen],
+  [products.neon, products.oxygen],
   [products.oxygen, products.silicon],
   [products.silicon, products.iron],
 ]);
