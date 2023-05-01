@@ -516,6 +516,10 @@ export class Game {
   }
 
   sendEmptyShip(from: CelestialBody, to: CelestialBody) {
+    if (from.ships.length === 0) {
+      throw new Error(`No ships on ${from.name}`);
+    }
+
     const canGoDirectly = from.distanceTo(to) < from.bestShipRange;
     if (!canGoDirectly && !this.hasRouteToWithShip(from, to)) {
       throw new Error(`No route to ${to.name} from ${from.name}`);
@@ -545,6 +549,10 @@ export class Game {
     product: Product,
     amount: number
   ) {
+    if (from.ships.length === 0) {
+      throw new Error(`No ships on ${from.name}`);
+    }
+
     const productAmountFrom = from.products.get(product);
     if (productAmountFrom === undefined) {
       throw new Error(`Product ${product} not found on ${from.name}`);
